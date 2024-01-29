@@ -50,6 +50,7 @@ const typeDefs = gql`
     addComment(postId: ID!, commentText: String!): Comment
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Comment
+    updatePost(postId: ID!, postText: String!): Post
   }
 
   type Auth {
