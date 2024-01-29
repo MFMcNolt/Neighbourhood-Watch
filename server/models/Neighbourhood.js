@@ -1,6 +1,3 @@
-const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/dateFormat');
-
 const myNeighbourhoodSchema = new Schema({
   name: {
     type: String,
@@ -10,11 +7,6 @@ const myNeighbourhoodSchema = new Schema({
   description: {
     type: String,
     required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
   },
   posts: [
     {
@@ -59,12 +51,6 @@ const myNeighbourhoodSchema = new Schema({
     },
   ],
 });
-
-const MyNeighbourhood = model('MyNeighbourhood', myNeighbourhoodSchema);
-
-module.exports = MyNeighbourhood;
-
-
 
 
 
