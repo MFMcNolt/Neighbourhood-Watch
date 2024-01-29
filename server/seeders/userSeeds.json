@@ -2,127 +2,151 @@
   {
     "username": "Sarah",
     "email": "sarah@example.com",
-    "password": "password123"
+    "password": "password123",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Grey",
     "email": "grey@example.com",
-    "password": "password456"
+    "password": "password456",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Miriam",
     "email": "miriam@example.com",
-    "password": "password789"
+    "password": "password789",
+    "suburb": "Lane Cove"
   },
   {
     "username": "John",
     "email": "john@example.com",
-    "password": "passwordabc"
+    "password": "passwordabc",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Emily",
     "email": "emily@example.com",
-    "password": "passworddef"
+    "password": "passworddef",
+    "suburb": "Lane Cove"
   },
   {
     "username": "David",
     "email": "david@example.com",
-    "password": "passwordghi"
+    "password": "passwordghi",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Lisa",
     "email": "lisa@example.com",
-    "password": "passwordjkl"
+    "password": "passwordjkl",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Rachel",
     "email": "rachel@example.com",
-    "password": "passwordmno"
+    "password": "passwordmno",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Mark",
     "email": "mark@example.com",
-    "password": "passwordpqr"
+    "password": "passwordpqr",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Sophie",
     "email": "sophie@example.com",
-    "password": "passwordstu"
+    "password": "passwordstu",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Tom",
     "email": "tom@example.com",
-    "password": "passwordvwx"
+    "password": "passwordvwx",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Alice",
     "email": "alice@example.com",
-    "password": "passwordyz1"
+    "password": "passwordyz1",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Michael",
     "email": "michael@example.com",
-    "password": "password234"
+    "password": "password234",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Stu",
     "email": "stu@example.com",
-    "password": "password567"
+    "password": "password567",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Mini",
     "email": "mini@example.com",
-    "password": "password890"
+    "password": "password890",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Oliver",
     "email": "oliver@example.com",
-    "password": "passwordabc2"
+    "password": "passwordabc2",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Ella",
     "email": "ella@example.com",
-    "password": "passworddef3"
+    "password": "passworddef3",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Max",
     "email": "max@example.com",
-    "password": "passwordghi4"
+    "password": "passwordghi4",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Lily",
     "email": "lily@example.com",
-    "password": "passwordjkl5"
+    "password": "passwordjkl5",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Nathan",
     "email": "nathan@example.com",
-    "password": "passwordmno6"
+    "password": "passwordmno6",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Emma",
     "email": "emma@example.com",
-    "password": "passwordpqr7"
+    "password": "passwordpqr7",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Daniel",
     "email": "daniel@example.com",
-    "password": "passwordstu8"
+    "password": "passwordstu8",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Jessica",
     "email": "jessica@example.com",
-    "password": "passwordvwx9"
+    "password": "passwordvwx9",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Ben",
     "email": "ben@example.com",
-    "password": "passwordyz10"
+    "password": "passwordyz10",
+    "suburb": "Lane Cove"
   },
   {
     "username": "Sophia",
     "email": "sophia@example.com",
-    "password": "password23411"
+    "password": "password23411",
+    "suburb": "Lane Cove"
   }
 ]
-

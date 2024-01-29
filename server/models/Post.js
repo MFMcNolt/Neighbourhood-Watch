@@ -6,7 +6,6 @@ const postSchema = new Schema({
     type: String,
     required: true,
     minlength: 1,
-    maxlength: 280,
     trim: true,
   },
   postAuthor: {
@@ -19,6 +18,11 @@ const postSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
+  topic: {
+    type: String,
+    // required: true,
+  },
+
   comments: [
     {
       commentText: {
