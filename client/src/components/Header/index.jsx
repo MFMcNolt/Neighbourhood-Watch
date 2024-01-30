@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import Auth from '../../utils/auth';
+import logo from '../../assets/Homelogo.png';
 
 const Header = () => {
   const logout = (event) => {
@@ -11,7 +12,9 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Neighbourhood Watch</h1>
+            <Link to="/">
+            <img src={logo} alt="Neighbourhood Watch Logo" className="logo" />
+          </Link>
           </Link>
           <p className="m-0">Empowering Communities, Securing Streets!</p>
         </div>
