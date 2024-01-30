@@ -2,21 +2,21 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 
-import { ADD_THOUGHT } from '../../utils/mutations';
-import { QUERY_THOUGHTS, QUERY_ME } from '../../utils/queries';
+import { ADD_POST } from '../../utils/mutations'; // Updated import
+import { QUERY_POSTS, QUERY_ME } from '../../utils/queries'; // Updated import
 
 import Auth from '../../utils/auth';
 
-const ThoughtForm = () => {
-  const [thoughtText, setThoughtText] = useState('');
+const PostForm = () => { // Updated component name
+  const [postText, setPostText] = useState(''); // Updated state variable
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addThought, { error }] = useMutation
-  (ADD_THOUGHT, {
+  const [addPost, { error }] = useMutation( // Updated mutation name
+    ADD_POST, { // Updated mutation name
     refetchQueries: [
-      QUERY_THOUGHTS,
-      'getThoughts',
+      QUERY_POSTS, // Updated query name
+      'getPosts', // Updated query name
       QUERY_ME,
       'me'
     ]
@@ -26,14 +26,14 @@ const ThoughtForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addThought({
+      const { data } = await addPost({ // Updated mutation name
         variables: {
-          thoughtText,
-          thoughtAuthor: Auth.getProfile().data.username,
+          postText,
+          postAuthor: Auth.getProfile().data.username,
         },
       });
 
-      setThoughtText('');
+      setPostText('');
     } catch (err) {
       console.error(err);
     }
@@ -42,8 +42,8 @@ const ThoughtForm = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === 'thoughtText' && value.length <= 280) {
-      setThoughtText(value);
+    if (name === 'postText' && value.length <= 280) {
+      setPostText(value);
       setCharacterCount(value.length);
     }
   };
@@ -67,9 +67,9 @@ const ThoughtForm = () => {
           >
             <div className="col-12 col-lg-9">
               <textarea
-                name="thoughtText"
-                placeholder="Here's a new thought..."
-                value={thoughtText}
+                name="postText" // Updated input name
+                placeholder="Here's a new post..." // Updated placeholder
+                value={postText} // Updated value
                 className="form-input w-100"
                 style={{ lineHeight: '1.5', resize: 'vertical' }}
                 onChange={handleChange}
@@ -78,7 +78,7 @@ const ThoughtForm = () => {
 
             <div className="col-12 col-lg-3">
               <button className="btn btn-primary btn-block py-3" type="submit">
-                Add Thought
+                Add Post
               </button>
             </div>
             {error && (
@@ -98,4 +98,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default PostForm;
