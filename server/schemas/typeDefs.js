@@ -6,7 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    suburb: String # Add suburb field
+    suburb: String
     posts: [Post]!
     comments: [Comment]!
   }
@@ -17,7 +17,7 @@ const typeDefs = gql`
     postAuthor: String
     createdAt: String
     comments: [Comment]!
-    topic: Topic
+    topic: Topic!
   }
   
   type Comment {
@@ -46,7 +46,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!, suburb: String!): Auth # Add suburb argument
     login(email: String!, password: String!): Auth
-    addPost(postText: String!, topic: Topic!): Post # Remove myNeighbourhoodId argument
+    addPost(postText: String!, topic: Topic!): Post
     addComment(postId: ID!, commentText: String!): Comment
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Comment
