@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
 
 const Header = () => {
@@ -12,15 +11,18 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <h1 className="m-0">Tech Thoughts</h1>
+            <h1 className="m-0">Neighbourhood Watch</h1>
           </Link>
-          <p className="m-0">Get into the mind of a programmer.</p>
+          <p className="m-0">Empowering Communities, Securing Streets!</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 {Auth.getProfile().data.username}'s profile
+              </Link>
+              <Link className="btn btn-lg btn-info m-2" to="/posts">
+                {Auth.getNeighbourhoodPost().data.posts} 
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout

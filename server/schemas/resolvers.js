@@ -9,11 +9,21 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('posts');
     },
-    posts: async (parent, { username }) => {
-      const params = {};
-      if (username) params.postAuthor = username;
+
+    // posts: async (parent, { username, topic }) => {
+    //   const params = {};
+    //   if (topic) params.postAuthor = username;
+    //   return Post.find(params).sort({ createdAt: -1 });
+    // },
+
+    posts: async (parent, { username, topic }) => {
+      const params = username ? { username } : {};
+      if (topic) {
+        params.topic = topic;
+      }
       return Post.find(params).sort({ createdAt: -1 });
     },
+
     post: async (parent, { postId }) => {
       return Post.findById(postId);
     },

@@ -20,9 +20,9 @@ const postSchema = new Schema({
   },
   topic: {
     type: String,
-    // required: true,
+    required: true,
+    enum: ['NEWS', 'FOR_SALE', 'CRIME', 'INFRASTRUCTURE']
   },
-
   comments: [
     {
       commentText: {
