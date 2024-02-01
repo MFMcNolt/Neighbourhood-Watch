@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_NEIGHBOURHOOD_POSTS } from '../../queries'; // Import your query for fetching neighbourhood posts
-import MyNeighbourhoodFilter from '../components/MyNeighbourhoodFilter'; // Import your filter component
+import { QUERY_POSTS } from '../../queries'; // Import your query for fetching neighbourhood posts
+import PostFilter from '../components/PostFilter'; // Import your filter component
 
-const MyNeighbourhoodPage = () => {
+const neighbourhoodPosts = () => {
   const [sortBy, setSortBy] = useState('createdAt'); // State for sorting options
   const [activeFilter, setActiveFilter] = useState('All'); // State for active filter
-  const { loading, error, data } = useQuery(GET_NEIGHBOURHOOD_POSTS, {
+  const { loading, error, data } = useQuery(QUERY_POSTS, {
     variables: { sortBy, filter: activeFilter }, // Pass sorting option and filter to query
   });
 
@@ -27,7 +27,7 @@ const MyNeighbourhoodPage = () => {
       <PostForm />
 
       {/* Filtering options */}
-      <MyNeighbourhoodFilter onFilterChange={handleFilterChange} />
+      <PostFilter onFilterChange={handleFilterChange} />
 
       {/* List of posts */}
       <ul>
@@ -43,4 +43,4 @@ const MyNeighbourhoodPage = () => {
   );
 };
 
-export default MyNeighbourhoodPage;
+

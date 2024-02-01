@@ -22,8 +22,12 @@ const QUERY_POSTS = gql`
       _id
       postTopic
       postText
-      postAuthor
       createdAt
+      postAuthor {
+        _id
+        username
+      }
+      }
     }
   }
 `;
