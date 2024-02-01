@@ -1,100 +1,90 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations';
-
-import Auth from '../utils/auth';
-
-const Signup = () => {
-  const [formState, setFormState] = useState({
+const SignUpPage = () => {
+  // State for form inputs
+  const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
+    neighborhood: ''
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  // State for error message
+  const [errorMessage, setErrorMessage] = useState('');
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
-  const handleFormSubmit = async (event) => {
+  // Function to handle form submission
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    // Perform form validation
+    if (!formData.username || !formData.email || !formData.password || !formData.neighborhood) {
+      setErrorMessage('All fields are required');
+      return;
+    }
 
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
-      });
-
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+      // Perform sign-up logic (e.g., call sign-up API)
+      // If successful, redirect to login page
+    } catch (error) {
+      // Handle sign-up error (e.g., display error message)
+      setErrorMessage(error.message);
     }
   };
 
-  return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+  // Function to handle input changes
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </main>
+  return (
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        {/* Username input */}
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+        />
+        {/* Email input */}
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+        {/* Password input */}
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        {/* Neighborhood input */}
+        <input
+          type="text"
+          name="neighborhood"
+          placeholder="Neighborhood"
+          value={formData.neighborhood}
+          onChange={handleChange}
+        />
+        {/* Error message display */}
+        {errorMessage && <p>{errorMessage}</p>}
+        {/* Sign Up button */}
+        <button type="submit">Sign Up</button>
+      </form>
+      {/* Link to navigate to the login page */}
+      <p>Already have an account? <Link to="/login">Login</Link></p>
+    </div>
   );
 };
 
-export default Signup;
+export default SignUpPage;
+
+
