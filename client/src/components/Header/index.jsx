@@ -7,14 +7,13 @@ const Header = () => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
-            <Link to="/">
             <img src={logo} alt="Neighbourhood Watch Logo" className="logo" />
-          </Link>
           </Link>
           <p className="m-0">Empowering Communities, Securing Streets!</p>
         </div>
@@ -25,7 +24,7 @@ const Header = () => {
                 {Auth.getProfile().data.username}'s profile
               </Link>
               <Link className="btn btn-lg btn-info m-2" to="/posts">
-                {Auth.getNeighbourhoodPost().data.posts} 
+                My Neighbourhood
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout

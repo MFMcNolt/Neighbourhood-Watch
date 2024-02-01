@@ -1,0 +1,24 @@
+
+/* filter for posts */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-item {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-item.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
