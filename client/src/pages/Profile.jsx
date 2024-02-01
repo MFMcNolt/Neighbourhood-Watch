@@ -5,17 +5,17 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_USER_PROFILE, GET_USER_POSTS } from '../../queries'; // Import your queries
+import { QUERY_USER, QUERY_POSTS } from '../../queries'; // Import your queries
 
 const ProfilePage = () => {
   // State to store user profile data
   const [userData, setUserData] = useState(null);
 
   // Query to fetch user profile data
-  const { loading: profileLoading, error: profileError, data: profileData } = useQuery(GET_USER_PROFILE);
+  const { loading: profileLoading, error: profileError, data: profileData } = useQuery(QUERY_USER);
 
   // Query to fetch user's posts
-  const { loading: postsLoading, error: postsError, data: postData } = useQuery(GET_USER_POSTS);
+  const { loading: postsLoading, error: postsError, data: postData } = useQuery(QUERY_POSTS);
 
   // Mutation to handle profile updates
   const [updateProfile] = useMutation(UPDATE_PROFILE_MUTATION);
