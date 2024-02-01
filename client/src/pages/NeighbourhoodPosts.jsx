@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
 import { GET_NEIGHBOURHOOD_POSTS } from '../../queries'; // Import your query for fetching neighbourhood posts
+import MyNeighbourhoodFilter from '../components/MyNeighbourhoodFilter'; // Import your filter component
 
 const MyNeighbourhoodPage = () => {
   const [sortBy, setSortBy] = useState('createdAt'); // State for sorting options
+  const [activeFilter, setActiveFilter] = useState('All'); // State for active filter
   const { loading, error, data } = useQuery(GET_NEIGHBOURHOOD_POSTS, {
-    variables: { sortBy }, // Pass sorting option to query
+    variables: { sortBy, filter: activeFilter }, // Pass sorting option and filter to query
   });
 
   if (loading) return <p>Loading...</p>;
@@ -14,17 +15,19 @@ const MyNeighbourhoodPage = () => {
 
   const { neighbourhoodPosts } = data; // Assuming the query result has a property named neighbourhoodPosts
 
+  // Function to handle filter change
+  const handleFilterChange = (filter) => {
+    setActiveFilter(filter);
+  };
+
   return (
     <div>
       <h2>My Neighbourhood</h2>
-      {/* Create a new post */}
-      <Link to="/new-post">Create New Post</Link>
+      {/* New post form */}
+      <PostForm />
 
-      {/* Sorting options */}
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-        <option value="createdAt">Sort by Date</option>
-        <option value="topic">Sort by Topic</option>
-      </select>
+      {/* Filtering options */}
+      <MyNeighbourhoodFilter onFilterChange={handleFilterChange} />
 
       {/* List of posts */}
       <ul>
@@ -40,5 +43,4 @@ const MyNeighbourhoodPage = () => {
   );
 };
 
-
-
+export default MyNeighbourhoodPage;
