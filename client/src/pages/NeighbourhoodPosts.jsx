@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../../queries'; // Import your query for fetching neighbourhood posts
+import { QUERY_POSTS } from '../utils/queries'; // Import your query for fetching neighbourhood posts
 import PostFilter from '../components/PostFilter'; // Import your filter component
 
 const neighbourhoodPosts = () => {

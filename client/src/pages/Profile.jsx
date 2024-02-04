@@ -1,24 +1,14 @@
-// need to replace GET_USER_PROFILE, GET_USER_POSTS, and UPDATE_PROFILE_MUTATION with your actual GraphQL queries and mutation. 
-// need to adjust the data structure according to your GraphQL schema.
-
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_USER, QUERY_POSTS } from '../../queries'; // Import your queries
+import { QUERY_USER, QUERY_POSTS } from '../utils/queries';
+import { UPDATE_USER_PROFILE } from '../utils/mutations';
 
 const ProfilePage = () => {
-  // State to store user profile data
   const [userData, setUserData] = useState(null);
-
-  // Query to fetch user profile data
   const { loading: profileLoading, error: profileError, data: profileData } = useQuery(QUERY_USER);
-
-  // Query to fetch user's posts
   const { loading: postsLoading, error: postsError, data: postData } = useQuery(QUERY_POSTS);
-
-  // Mutation to handle profile updates
-  const [updateProfile] = useMutation(UPDATE_PROFILE_MUTATION);
+  const [updateProfile] = useMutation(UPDATE_USER_PROFILE);
 
   // Effect to update user data when profileData changes
   useEffect(() => {
@@ -27,16 +17,23 @@ const ProfilePage = () => {
     }
   }, [profileData]);
 
-  // Function to handle profile update
-  const handleProfileUpdate = (updatedData) => {
-    // Call the mutation to update profile with updatedData
-    updateProfile({ variables: { updatedData } });
-    // You may also want to update local state with the updatedData immediately
+  // update profile 
+  const handleUpdateProfile = async (updatedData) => {
+    try {
+      await updateProfile({ variables: { updatedData } });
+      
+      // Update local state with the updated data immediately
+      setUserData(updatedData);
+      console.log('Profile updated successfully!');
+    } catch (error) {
+      console.error('Error updating profile:', error.message);
+    }
   };
 
   // Function to handle logout
   const handleLogout = () => {
-    // Implement logout logic here (e.g., clearing user session, redirecting to login page)
+    localStorage.removeItem('id_token');
+    history.push('/login');
   };
 
   if (profileLoading || postsLoading) return <p>Loading...</p>;
@@ -63,7 +60,7 @@ const ProfilePage = () => {
               </li>
             ))}
           </ul>
-          <button onClick={() => handleProfileUpdate(updatedData)}>Edit Profile</button>
+          <button onClick={() => handleUpdateProfile(updatedData)}>Edit Profile</button>
           <button onClick={handleLogout}>Logout</button>
         </>
       )}

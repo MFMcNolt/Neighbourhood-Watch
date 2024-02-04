@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_POST_DETAILS, ADD_COMMENT } from '../../queries'; // Import your query for fetching post details and mutation for adding comments
+import { GET_POST_DETAILS, ADD_COMMENT } from '../utils/queries';
 
 const PostDetailsPage = () => {
   const { postId } = useParams();

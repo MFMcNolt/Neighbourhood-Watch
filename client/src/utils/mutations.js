@@ -56,3 +56,30 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const UPDATE_USER_PROFILE = gql`
+  mutation UpdateProfile($username: String, $email: String, $suburb: String) {
+    updateProfile(username: $username, email: $email, suburb: $suburb) {
+      _id
+      username
+      email
+      suburb
+    }
+  }
+`;
+
+export const DELETE_POST = gql`
+  mutation DeletePost($postId: ID!) {
+    deletePost(postId: $postId) {
+      _id
+    }
+  }
+`;
+
+export const DELETE_COMMENT = gql`
+  mutation DeleteComment($commentId: ID!) {
+    deleteComment(commentId: $commentId) {
+      _id
+    }
+  }
+`;

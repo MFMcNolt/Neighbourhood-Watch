@@ -1,8 +1,8 @@
 // NewPostForm.jsx
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../mutations'; // Import your mutation for adding a new post
-import { GET_NEIGHBOURHOOD_POSTS } from '../../queries'; // Import your query for fetching neighbourhood posts
+import { ADD_POST } from '../../utils/mutations'; 
+import { GET_NEIGHBOURHOOD_POSTS } from '../../utils/queries'; 
 
 const NewPostForm = () => {
   const [postContent, setPostContent] = useState('');
