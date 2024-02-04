@@ -1,14 +1,27 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from '../utils/mutations';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loginUser] = useMutation(LOGIN_USER);
+  const history = useHistory();
 
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    // Add login logic here
+    try {
+      const { data } = await loginUser({
+        variables: { email, password },
+      });
+      localStorage.setItem('id_token', data.login.token);
+      // Redirect to profile page after successful login
+      history.push('/profile');
+    } catch (err) {
+      setError('Invalid email or password. Please try again.');
+    }
   };
 
   return (
@@ -44,9 +57,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-
-
-
-
-
