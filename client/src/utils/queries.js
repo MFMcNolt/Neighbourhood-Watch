@@ -10,6 +10,7 @@ const QUERY_USER = gql`
       posts {
         _id
         postTitle
+        postTopic
         postText
         createdAt
       }
@@ -63,6 +64,7 @@ const QUERY_ME = gql`
       posts {
         _id
         postTitle
+        postTopic
         postText
         postAuthor
         createdAt

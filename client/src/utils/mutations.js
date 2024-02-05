@@ -30,8 +30,8 @@ export const ADD_POST = gql`
       _id
       postTitle
       postText
-      postAuthor
       postTopic
+      postAuthor
       createdAt
       comments {
         _id
@@ -47,8 +47,8 @@ export const ADD_COMMENT = gql`
       _id
       postTitle
       postText
-      postAuthor
       postTopic
+      postAuthor
       createdAt
       comments {
         _id

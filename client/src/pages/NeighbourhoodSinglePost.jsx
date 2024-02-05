@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_SINGLE_POST, ADD_COMMENT } from '../utils';
+import CommentForm from '../components/CommentForm';
+import CommentList from '../components/CommentList';
 
 const PostDetailsPage = () => {
   const { postId } = useParams();
@@ -33,14 +35,14 @@ const PostDetailsPage = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
 
-  const { post } = data; // Assuming the query result has a property named post
+  const { post } = data; 
 
   return (
     <div>
       <h2>{post.title}</h2>
       <p>Author: {post.author}</p>
       <p>Topic: {post.topic}</p>
-      <p>{post.content}</p>
+      <p>{post.text}</p>
       
       <h3>Comments</h3>
       <ul>
@@ -52,12 +54,19 @@ const PostDetailsPage = () => {
         ))}
       </ul>
 
-      {/* Comment form */}
+      {/* Render the CommentList component */}
+      <CommentList comments={post.comments} />
+
+      {/* Render the CommentForm component */}
+      <CommentForm comments={post.comments} />
+
+      {/* Comment form
       <textarea
         value={commentText}
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Add a comment..."
-      />
+      /> */}
+      
       <button onClick={handleSubmitComment}>Submit Comment</button>
     </div>
   );
