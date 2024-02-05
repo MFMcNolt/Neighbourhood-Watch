@@ -77,7 +77,7 @@ const SignUpPage = () => {
         <input
           type="text"
           name="suburb"
-          placeholder="Subrub"
+          placeholder="Suburb"
           value={formData.suburb}
           onChange={handleChange}
         />
