@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../utils/queries'; // Import your query for fetching neighbourhood posts
-import PostFilter from '../components/PostFilter'; // Import your filter component
+import { QUERY_POSTS } from '../utils/queries'; 
+import PostFilter from '../components/PostFilter'; 
 
 const neighbourhoodPosts = () => {
-  const [sortBy, setSortBy] = useState('createdAt'); // State for sorting options
-  const [activeFilter, setActiveFilter] = useState('All'); // State for active filter
+  const [sortBy, setSortBy] = useState('createdAt'); 
+  const [activeFilter, setActiveFilter] = useState('All');
   const { loading, error, data } = useQuery(QUERY_POSTS, {
-    variables: { sortBy, filter: activeFilter }, // Pass sorting option and filter to query
+    variables: { sortBy, filter: activeFilter },
   });
 
   if (loading) return <p>Loading...</p>;

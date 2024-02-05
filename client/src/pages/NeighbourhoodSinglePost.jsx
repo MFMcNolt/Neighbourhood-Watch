@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_SINGLE_POST, ADD_COMMENT } from '../utils';
+import { QUERY_SINGLE_POST } from '../utils/queries';
+import { ADD_COMMENT } from '../utils/mutations';
 import CommentForm from '../components/CommentForm';
 import CommentList from '../components/CommentList';
 
@@ -66,7 +67,7 @@ const PostDetailsPage = () => {
         onChange={(e) => setCommentText(e.target.value)}
         placeholder="Add a comment..."
       /> */}
-      
+
       <button onClick={handleSubmitComment}>Submit Comment</button>
     </div>
   );

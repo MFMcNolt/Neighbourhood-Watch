@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const QUERY_USER = gql`
+export const QUERY_USER = gql`
   query GetUser($username: String!) {
     user(username: $username) {
       _id
@@ -18,7 +18,7 @@ const QUERY_USER = gql`
   }
 `;
 
-const QUERY_POSTS = gql`
+export const QUERY_POSTS = gql`
   query GetPosts {
     posts {
       _id
@@ -30,12 +30,11 @@ const QUERY_POSTS = gql`
         _id
         username
       }
-      }
     }
   }
 `;
 
-const QUERY_SINGLE_POST = gql`
+export const QUERY_SINGLE_POST = gql`
   query GetSinglePost($postId: ID!) {
     post(postId: $postId) {
       _id
@@ -54,13 +53,13 @@ const QUERY_SINGLE_POST = gql`
   }
 `;
 
-const QUERY_ME = gql`
+export const QUERY_ME = gql`
   query GetMe {
     me {
       _id
       username
       email
-      subrub
+      suburb
       posts {
         _id
         postTitle
@@ -68,12 +67,12 @@ const QUERY_ME = gql`
         postText
         postAuthor
         createdAt
-        // comments {
-        //   _id
-        //   commentText
-        //   commentAuthor
-        //   createdAt
-        // }
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
     }
   }
