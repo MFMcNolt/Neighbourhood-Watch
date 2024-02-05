@@ -10,12 +10,6 @@ const resolvers = {
       return User.findOne({ username }).populate('posts');
     },
 
-    // posts: async (parent, { username, topic }) => {
-    //   const params = {};
-    //   if (topic) params.postAuthor = username;
-    //   return Post.find(params).sort({ createdAt: -1 });
-    // },
-
     posts: async (parent, { username, topic }) => {
       const params = username ? { username } : {};
       if (topic) {
@@ -39,7 +33,7 @@ const resolvers = {
     addUser: async (parent, { username, email, password, suburb }) => {
       const user = await User.create({ username, email, password, suburb });
       const token = signToken(user);
-      return { token, user };
+      // return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });

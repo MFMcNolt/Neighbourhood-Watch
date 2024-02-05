@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/client';
+import { ADD_USER } from '../utils/mutations'; // Adjust the path as needed
 
 const SignUpPage = () => {
-  // State for form inputs
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -10,29 +11,31 @@ const SignUpPage = () => {
     neighborhood: ''
   });
 
-  // State for error message
-  const [errorMessage, setErrorMessage] = useState('');
+  const [addUser] = useMutation(ADD_USER);
 
-  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Perform form validation
     if (!formData.username || !formData.email || !formData.password || !formData.neighborhood) {
       setErrorMessage('All fields are required');
       return;
     }
 
     try {
-      // Perform sign-up logic (e.g., call sign-up API)
+      const mutationResponse = await addUser({
+        variables: {
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+          suburb: formData.suburb,
+        },
+      });
       // If successful, redirect to login page
     } catch (error) {
-      // Handle sign-up error (e.g., display error message)
       setErrorMessage(error.message);
     }
   };
 
-  // Function to handle input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -42,7 +45,6 @@ const SignUpPage = () => {
     <div>
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        {/* Username input */}
         <input
           type="text"
           name="username"
@@ -50,7 +52,6 @@ const SignUpPage = () => {
           value={formData.username}
           onChange={handleChange}
         />
-        {/* Email input */}
         <input
           type="email"
           name="email"
@@ -58,7 +59,6 @@ const SignUpPage = () => {
           value={formData.email}
           onChange={handleChange}
         />
-        {/* Password input */}
         <input
           type="password"
           name="password"
@@ -66,25 +66,19 @@ const SignUpPage = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        {/* Neighborhood input */}
         <input
           type="text"
-          name="neighborhood"
-          placeholder="Neighborhood"
-          value={formData.neighborhood}
+          name="suburb"
+          placeholder="Subrub"
+          value={formData.suburb}
           onChange={handleChange}
         />
-        {/* Error message display */}
         {errorMessage && <p>{errorMessage}</p>}
-        {/* Sign Up button */}
         <button type="submit">Sign Up</button>
       </form>
-      {/* Link to navigate to the login page */}
       <p>Already have an account? <Link to="/login">Login</Link></p>
     </div>
   );
 };
 
 export default SignUpPage;
-
-
