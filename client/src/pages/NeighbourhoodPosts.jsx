@@ -34,7 +34,7 @@ const neighbourhoodPosts = () => {
         {neighbourhoodPosts.map(post => (
           <li key={post.id}>
             <Link to={`/post/${post.id}`}>{post.title}</Link>
-            <p>{post.content}</p>
+            <p>{post.text}</p>
             <p>Topic: {post.topic}</p>
           </li>
         ))}
@@ -43,4 +43,4 @@ const neighbourhoodPosts = () => {
   );
 };
 
-
+export default neighbourhoodPosts;
