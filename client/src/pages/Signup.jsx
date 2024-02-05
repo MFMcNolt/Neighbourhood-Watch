@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations'; // Adjust the path as needed
+import { ADD_USER } from '../utils/mutations'; 
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    neighborhood: ''
+    suburb: ''
   });
 
   const [addUser] = useMutation(ADD_USER);
@@ -16,7 +17,7 @@ const SignUpPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!formData.username || !formData.email || !formData.password || !formData.neighborhood) {
+    if (!formData.username || !formData.email || !formData.password || !formData.suburb) {
       setErrorMessage('All fields are required');
       return;
     }
@@ -30,12 +31,19 @@ const SignUpPage = () => {
           suburb: formData.suburb,
         },
       });
-      // If successful, redirect to login page
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
 
+    // Check if the mutation response contains data
+    if (mutationResponse.data && mutationResponse.data.addUser && mutationResponse.data.addUser.token) {
+      
+      // Redirect to the login page
+      navigate('/login'); 
+    } else {
+      // Handle the case where the mutation response does not contain a token
+      setErrorMessage('Sign-up failed. Please try again.');
+    }
+  } catch (error) {
+    setErrorMessage(error.message);
+  }
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -80,5 +88,6 @@ const SignUpPage = () => {
     </div>
   );
 };
+}
 
 export default SignUpPage;

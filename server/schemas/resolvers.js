@@ -33,7 +33,7 @@ const resolvers = {
     addUser: async (parent, { username, email, password, suburb }) => {
       const user = await User.create({ username, email, password, suburb });
       const token = signToken(user);
-      // return { token, user };
+      return { token, user };
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
