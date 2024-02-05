@@ -28,6 +28,7 @@ export const ADD_POST = gql`
   mutation AddPost($postText: String!) {
     addPost(postText: $postText) {
       _id
+      postTitle
       postText
       postAuthor
       postTopic
@@ -44,6 +45,7 @@ export const ADD_COMMENT = gql`
   mutation AddComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
       _id
+      postTitle
       postText
       postAuthor
       postTopic

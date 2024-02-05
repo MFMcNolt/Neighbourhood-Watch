@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { GET_POST_DETAILS, ADD_COMMENT } from '../utils/queries';
+import { QUERY_SINGLE_POST, ADD_COMMENT } from '../utils';
 
 const PostDetailsPage = () => {
   const { postId } = useParams();
-  const { loading, error, data } = useQuery(GET_POST_DETAILS, { variables: { postId } });
+  const { loading, error, data } = useQuery(QUERY_SINGLE_POST, { variables: { postId } });
 
   const [commentText, setCommentText] = useState('');
 
   const [addComment] = useMutation(ADD_COMMENT, {
-    refetchQueries: [{ query: GET_POST_DETAILS, variables: { postId } }]
+    refetchQueries: [{ query: QUERY_SINGLE_POST, variables: { postId } }]
   });
 
   const handleSubmitComment = async () => {
@@ -38,9 +38,9 @@ const PostDetailsPage = () => {
   return (
     <div>
       <h2>{post.title}</h2>
-      <p>{post.content}</p>
       <p>Author: {post.author}</p>
       <p>Topic: {post.topic}</p>
+      <p>{post.content}</p>
       
       <h3>Comments</h3>
       <ul>

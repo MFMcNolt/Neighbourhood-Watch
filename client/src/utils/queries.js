@@ -9,6 +9,7 @@ const QUERY_USER = gql`
       suburb
       posts {
         _id
+        postTitle
         postText
         createdAt
       }
@@ -20,6 +21,7 @@ const QUERY_POSTS = gql`
   query GetPosts {
     posts {
       _id
+      postTitle
       postTopic
       postText
       createdAt
@@ -36,6 +38,7 @@ const QUERY_SINGLE_POST = gql`
   query GetSinglePost($postId: ID!) {
     post(postId: $postId) {
       _id
+      postTitle
       postTopic
       postText
       postAuthor
@@ -59,6 +62,7 @@ const QUERY_ME = gql`
       subrub
       posts {
         _id
+        postTitle
         postText
         postAuthor
         createdAt

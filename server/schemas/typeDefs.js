@@ -13,6 +13,7 @@ const typeDefs = gql`
 
   type Post {
     _id: ID
+    postTitle: String
     postText: String
     postAuthor: String
     createdAt: String
@@ -46,7 +47,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!, suburb: String!): Auth # Add suburb argument
     login(email: String!, password: String!): Auth
-    addPost(postText: String!, topic: Topic!): Post
+    addPost(postTitle: String! postText: String!, topic: Topic!): Post
     addComment(postId: ID!, commentText: String!): Comment
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Comment
