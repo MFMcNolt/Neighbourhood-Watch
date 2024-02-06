@@ -16,6 +16,7 @@ Through the development of Neighborhood Watch, we learned valuable lessons about
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technology](#technology)
 - [Credits](#credits)
 - [License](#license)
 
@@ -35,6 +36,14 @@ Register or log in to their accounts to access the platform.
 Browse through posts and announcements shared by other community members.
 Create new posts to share updates, alerts, or announcements with the neighborhood.
 Engage in discussions by commenting on posts and responding to comments from other users.
+
+## Technology
+- React for the front end.
+- GraphQL with a Node.js and Express.js server.
+- MongoDB and the Mongoose ODM for the database.
+- Queries and mutations for retrieving, adding, updating, and deleting data.
+- ChakuraUI
+- Appollo
 
 ## Credits
 Neighborhood Watch was created by Marion Ferguson McNulty. 
