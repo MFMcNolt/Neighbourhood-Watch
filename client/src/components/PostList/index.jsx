@@ -8,7 +8,7 @@ const PostList = ({ posts }) => {
       {posts.map(post => (
         <div key={post._id} className="post">
           <h3>{post.postTitle}</h3>
-          <p>Topic: {post.topic}</p>
+          <p>Topic: {post.postTopic}</p>
           <p>{post.postText}</p>
           <p>Author: {post.postAuthor}</p>
           <p>Created At: {post.createdAt}</p>
