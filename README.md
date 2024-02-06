@@ -37,7 +37,7 @@ Browse through posts and announcements shared by other community members.
 Create new posts to share updates, alerts, or announcements with the neighborhood.
 Engage in discussions by commenting on posts and responding to comments from other users.
 
-[Screenshot](https://client/src/assets/Screenshot.png)
+[Screenshot Here](https://github.com/MFMcNolt/Neighbourhood-Watch/blob/main/client/src/assets/Screenshot.png?raw=true)
 
 ## Technology
 - React for the front end.
