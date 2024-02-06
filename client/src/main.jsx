@@ -2,12 +2,13 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from './App.jsx';
-import NeighbourhoodPosts from './pages/NeighbourhoodPosts';
+import ErrorPage from './pages/ErrorPage';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
-import NeighbourhoodSinglePost from './pages/NeighbourhoodSinglePost.jsx';
 import Profile from './pages/Profile';
-import ErrorPage from './pages/ErrorPage';
+import Home from './pages/Home.jsx';
+import Posts from './pages/Posts.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <NeighbourhoodPosts />
+        element: <Home />
       }, {
         path: '/login',
         element: <Login />
@@ -31,9 +32,13 @@ const router = createBrowserRouter([
         path: '/me',
         element: <Profile />
       }, {
-        path: '/singlepost/:postId',
-        element: <NeighbourhoodSinglePost />
-      }
+        path: '/home',
+        element: <Home />
+      },
+      {
+        path: '/posts/:postId',
+        element: <Posts />
+      },
     ]
   },
 ]);

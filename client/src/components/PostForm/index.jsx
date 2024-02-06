@@ -1,36 +1,55 @@
-// NewPostForm.jsx
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { ADD_POST } from '../../utils/mutations'; 
-import { GET_NEIGHBOURHOOD_POSTS } from '../../utils/queries'; 
 
-const NewPostForm = () => {
-  const [postContent, setPostContent] = useState('');
-  const [addPost, { error }] = useMutation(ADD_POST, {
-    refetchQueries: [{ query: GET_NEIGHBOURHOOD_POSTS }],
-  });
+const PostForm = ({ onSubmit }) => {
+  const [title, setTitle] = useState('');
+  const [topic, setTopic] = useState('');
+  const [text, setText] = useState('');
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await addPost({ variables: { content: postContent } });
-      setPostContent('');
-    } catch (err) {
-      console.error(err);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ title, topic, text });
+    setTitle('');
+    setTopic('');
+    setText('');
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <textarea
-        value={postContent}
-        onChange={(e) => setPostContent(e.target.value)}
-        placeholder="Write your new post here..."
-      ></textarea>
-      <button type="submit">Submit</button>
-      {error && <p>Error: {error.message}</p>}
-    </form>
+    <div>
+      <h2>Add A New Post</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="title">Title:</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="topic">Topic:</label>
+          <input
+            type="text"
+            id="topic"
+            value={topic}
+            onChange={(e) => setTopic(e.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="text">Text:</label>
+          <textarea
+            id="text"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            required
+          ></textarea>
+        </div>
+        <button type="submit">Submit Post</button>
+      </form>
+    </div>
   );
 };
 
-export default NewPostForm;
+export default PostForm;

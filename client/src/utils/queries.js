@@ -10,7 +10,6 @@ export const QUERY_USER = gql`
       posts {
         _id
         postTitle
-        postTopic
         postText
         createdAt
       }
@@ -23,13 +22,9 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       postTitle
-      postTopic
       postText
       createdAt
-      postAuthor {
-        _id
-        username
-      }
+      postAuthor 
     }
   }
 `;
@@ -39,7 +34,6 @@ export const QUERY_SINGLE_POST = gql`
     post(postId: $postId) {
       _id
       postTitle
-      postTopic
       postText
       postAuthor
       createdAt
@@ -63,7 +57,6 @@ export const QUERY_ME = gql`
       posts {
         _id
         postTitle
-        postTopic
         postText
         postAuthor
         createdAt
@@ -74,6 +67,15 @@ export const QUERY_ME = gql`
           createdAt
         }
       }
+    }
+  }
+`;
+
+export const QUERY_POST_TITLES = gql`
+  query GetPostTitles {
+    posts {
+      _id
+      postTitle
     }
   }
 `;

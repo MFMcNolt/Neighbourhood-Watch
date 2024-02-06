@@ -18,7 +18,7 @@ const LoginPage = () => {
       });
       localStorage.setItem('id_token', data.login.token);
       // Redirect to profile page after successful login
-      navigate('/profile');
+      navigate('/me');
     } catch (err) {
       setError('Invalid email or password. Please try again.');
     }

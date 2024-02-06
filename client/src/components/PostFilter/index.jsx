@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const MyNeighbourhoodFilter = ({ onFilterChange }) => {
+const PostFilter = ({ onFilterChange }) => {
   const [activeFilter, setActiveFilter] = useState('All');
 
   const handleClick = (filter) => {
@@ -49,4 +49,4 @@ const MyNeighbourhoodFilter = ({ onFilterChange }) => {
   );
 };
 
-export default MyNeighbourhoodFilter;
+export default PostFilter;
