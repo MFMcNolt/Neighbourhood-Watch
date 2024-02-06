@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutations'; 
+import { ADD_USER } from '../utils/mutations';
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -11,7 +11,8 @@ const SignUpPage = () => {
     password: '',
     suburb: ''
   });
-
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
   const [addUser] = useMutation(ADD_USER);
 
   const handleSubmit = async (event) => {
@@ -32,18 +33,22 @@ const SignUpPage = () => {
         },
       });
 
-    // Check if the mutation response contains data
-    if (mutationResponse.data && mutationResponse.data.addUser && mutationResponse.data.addUser.token) {
-      
-      // Redirect to the login page
-      navigate('/login'); 
-    } else {
-      // Handle the case where the mutation response does not contain a token
-      setErrorMessage('Sign-up failed. Please try again.');
+      if (mutationResponse.data && mutationResponse.data.addUser && mutationResponse.data.addUser.token) {
+        // Show success message
+        setSuccessMessage('Signed up successfully! Redirecting to profile page...');
+        
+        // Redirect to the profile page after a short delay
+        setTimeout(() => {
+          navigate('/me');
+        }, 2000); // 2000 milliseconds (2 seconds) delay
+      } else {
+        setErrorMessage('Sign-up failed. Please try again.');
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
     }
-  } catch (error) {
-    setErrorMessage(error.message);
-  }
+  };
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
@@ -82,12 +87,12 @@ const SignUpPage = () => {
           onChange={handleChange}
         />
         {errorMessage && <p>{errorMessage}</p>}
+        {successMessage && <p>{successMessage}</p>}
         <button type="submit">Sign Up</button>
       </form>
       <p>Already have an account? <Link to="/login">Login</Link></p>
     </div>
   );
 };
-}
 
 export default SignUpPage;
