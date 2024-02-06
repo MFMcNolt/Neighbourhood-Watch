@@ -25,7 +25,7 @@ const postSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  topic: {
+  postTopic: {
     type: String,
     required: true,
     enum: ['NEWS', 'FOR_SALE', 'CRIME', 'INFRASTRUCTURE']

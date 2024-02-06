@@ -22,12 +22,31 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       postTitle
+      postTopic
       postText
       createdAt
-      postAuthor 
+      postAuthor
     }
   }
 `;
+
+// export const QUERY_SINGLE_POST = gql`
+//   query GetSinglePost($postId: ID!) {
+//     post(postId: $postId) {
+//       _id
+//       postTitle
+//       postText
+//       postAuthor
+//       createdAt
+//       comments {
+//         _id
+//         commentText
+//         commentAuthor
+//         createdAt
+//       }
+//     }
+//   }
+// `;
 
 export const QUERY_SINGLE_POST = gql`
   query GetSinglePost($postId: ID!) {
@@ -43,6 +62,7 @@ export const QUERY_SINGLE_POST = gql`
         commentAuthor
         createdAt
       }
+      postTopic
     }
   }
 `;

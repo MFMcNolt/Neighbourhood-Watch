@@ -10,10 +10,10 @@ const resolvers = {
       return User.findOne({ username }).populate('posts');
     },
 
-    posts: async (parent, { username, topic }) => {
+    posts: async (parent, { username, postTopic }) => {
       const params = username ? { username } : {};
-      if (topic) {
-        params.topic = topic;
+      if (postTopic) {
+        params.postTopic = postTopic; // Update to use postTopic
       }
       return Post.find(params).sort({ createdAt: -1 });
     },
@@ -37,36 +37,36 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+  
       if (!user) {
         throw new AuthenticationError('Incorrect email or password');
       }
-
+  
       const correctPw = await user.isCorrectPassword(password);
-
+  
       if (!correctPw) {
         throw new AuthenticationError('Incorrect email or password');
       }
-
+  
       const token = signToken(user);
-
+  
       return { token, user };
     },
-    addPost: async (parent, { postTitle, postText, topic }, context) => {
+    addPost: async (parent, { postTitle, postText, postTopic }, context) => { // Change 'topic' to 'postTopic'
       if (context.user) {
         const post = await Post.create({
           postTitle,
           postText,
           postAuthor: context.user.username,
-          topic
+          postTopic, // Use 'postTopic' parameter
         });
-
+  
         await User.findByIdAndUpdate(
           context.user._id,
           { $addToSet: { posts: post._id } },
           { new: true }
         );
-
+  
         return post;
       }
       throw new AuthenticationError('You need to be logged in!');
@@ -77,14 +77,14 @@ const resolvers = {
           _id: postId,
           postAuthor: context.user.username,
         });
-
+  
         if (post) {
           await User.findByIdAndUpdate(
             context.user._id,
             { $pull: { posts: postId } }
           );
         }
-
+  
         return post;
       }
       throw new AuthenticationError('You need to be logged in!');

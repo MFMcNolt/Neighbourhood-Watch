@@ -4,7 +4,7 @@
     "postTitle": "Graffiti Cleaned Off Spooner St Bus Stop",
     "postText": "The graffiti on Spooner St bus stop has been cleaned off.",
     "postAuthor": "Sarah",
-    "topic": "NEWS",
+    "postTopic": "NEWS",
     "comments": [
       {
         "commentText": "That's great news!",
@@ -16,7 +16,7 @@
     "postTitle": "Party Announcement for 16th Feb",
     "postText": "Hey neighbors, we are throwing a party on the 16th Feb and wanted to let you know that there might be a few more cars parked around Angus Street and surrounds. We will be keeping the noise to a minimum and guests know to keep quiet when leaving! Text me if you have any issues at 040404040401.",
     "postAuthor": "Grey",
-    "topic": "NEWS",
+    "postTopic": "NEWS",
     "comments": [
       {
         "commentText": "Looking forward to it!",
@@ -32,166 +32,16 @@
       }
     ]
   },
-  {
-    "postTitle": "Selling LG 3000 TV",
-    "postText": "Selling our 2-year-old TV as we have just updated our whole system. It is an LG 3000 and is in great working order. Feel free to come and see for yourself.",
-    "postAuthor": "Miriam",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Community Meeting Tonight",
-    "postText": "Reminder: Community meeting tonight at the local community center to discuss upcoming roadworks.",
-    "postAuthor": "John",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Lost Cat Alert",
-    "postText": "Lost cat alert! Our beloved tabby cat, Whiskers, has gone missing. If found, please contact me immediately. Reward offered.",
-    "postAuthor": "Emily",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Local High School Basketball Team Wins Championship",
-    "postText": "Congratulations to our local high school basketball team for winning the championship! Go Tigers!",
-    "postAuthor": "David",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Emergency Water Shutdown Tomorrow",
-    "postText": "Emergency water shutdown scheduled for tomorrow from 9 AM to 3 PM for maintenance. Please ensure all faucets are turned off.",
-    "postAuthor": "Lisa",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Local Farmer's Market This Weekend",
-    "postText": "Local farmer's market happening this weekend. Come support local vendors and enjoy fresh produce!",
-    "postAuthor": "Rachel",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Recent Car Break-Ins Reported",
-    "postText": "Beware of recent car break-ins reported in the area. Remember to lock your vehicles and report any suspicious activity to the authorities.",
-    "postAuthor": "Mark",
-    "topic": "CRIME"
-  },
-  {
-    "postTitle": "Community Clean-Up Day Next Saturday",
-    "postText": "Community clean-up day scheduled for next Saturday. Volunteers needed to help keep our neighborhood clean and green!",
-    "postAuthor": "Sophie",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Local Charity Food Drive This Month",
-    "postText": "Local charity food drive happening this month. Please consider donating non-perishable food items to help those in need.",
-    "postAuthor": "Tom",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Local Library Wins Best Library Award",
-    "postText": "Congratulations to our local library for winning the Best Library Award! Thank you to everyone who supports our community library.",
-    "postAuthor": "Alice",
-    "topic": "NEWS"
-  },
-  {
-    "postTitle": "Road Closure on Main Street This Weekend",
-    "postText": "Road closure on Main Street this weekend for repairs. Please plan alternate routes.",
-    "postAuthor": "Michael",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Renovation Plans Submitted for Number 22 Woodford Avenue",
-    "postText": "Number 22 Woodford Avenue has officially submitted their renovation plans to be approved by the DA. Please review on the council site.",
-    "postAuthor": "Stu",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Updates to Grandstand Underway",
-    "postText": "Updates to our grandstand are underway. It will be happening all on August. Be prepared for noise, trucks, and a great new grandstand.",
-    "postAuthor": "Mini",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Construction of New Community Park Begins",
-    "postText": "Construction of the new community park has begun! Exciting times ahead as we work towards creating a green space for everyone to enjoy.",
-    "postAuthor": "Oliver",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Road Resurfacing on Elm Street Next Week",
-    "postText": "Road resurfacing on Elm Street will commence next week. Expect temporary lane closures and minor delays during construction.",
-    "postAuthor": "Ella",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Utility Maintenance Work Scheduled Tomorrow",
-    "postText": "Notice: Utility maintenance work scheduled for tomorrow. Residents may experience temporary water interruptions in the affected area.",
-    "postAuthor": "Max",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Bike Lanes Along Main Avenue Approved",
-    "postText": "Exciting news! The long-awaited bike lanes along Main Avenue have been approved. Get ready to pedal safely through our neighborhood!",
-    "postAuthor": "Lily",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "New Street Lights Installation on Oak Drive",
-    "postText": "Installation of new street lights on Oak Drive is in progress. Brighter and safer streets coming soon!",
-    "postAuthor": "Nathan",
-    "topic": "INFRASTRUCTURE"
-  },
-  {
-    "postTitle": "Moving Sale: Gently Used Sofa and Loveseat Set",
-    "postText": "Moving sale! Selling a gently used sofa and loveseat set. Neutral color, excellent condition. Contact me for more details.",
-    "postAuthor": "Emma",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Dining Table and Chairs for Sale",
-    "postText": "Downsizing and selling our dining table and chairs. Solid wood, seats six comfortably. Great for family dinners or gatherings.",
-    "postAuthor": "Daniel",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Baby Stroller for Sale",
-    "postText": "For sale: Baby stroller in good condition. Lightweight and easy to fold. Perfect for strolls around the neighborhood.",
-    "postAuthor": "Jessica",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Gardening Tools for Sale",
-    "postText": "Selling a set of gardening tools. Includes shovel, rake, and trowel. Perfect for maintaining your garden this spring!",
-    "postAuthor": "Ben",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Coffee Table for Sale",
-    "postText": "Moving out and selling our coffee table. Modern design with storage space. Adds a stylish touch to any living room.",
-    "postAuthor": "Sophia",
-    "topic": "FOR_SALE"
-  },
-  {
-    "postTitle": "Package Theft Alert",
-    "postText": "Our apartment block has been targeted for package stealing. We are on the corner of Central and Dennis street. We have sent security footage to police.",
-    "postAuthor": "Mark",
-    "topic": "CRIME"
-  },
-  {
-    "postTitle": "Heart Stolen Alert",
-    "postText": "Attention neighbors! Someone stole my heart last night... and it wasn't the pizza delivery guy! Keep an eye out for any suspiciously charming individuals.",
-    "postAuthor": "Sarah",
-    "topic": "CRIME"
-  },
-  {
-    "postTitle": "Culprit Cat Strikes Again!",
-    "postText": "BREAKING NEWS: The notorious 'Culprit Cat' strikes again! This time, stealing socks from the laundry room. Please return all stolen items to their rightful owners (if you can catch him!)",
-    "postAuthor": "Tom",
-    "topic": "CRIME"
-  },
-  {
-    "postTitle": "Office Snack Theft Alert",
-    "postText": "Alert: Mysterious disappearance of snacks from the office kitchen. Suspects include 'Snack Snatcher Sam' and 'Cookie Crumbler Cathy'. Please report any sightings of snack thieves!",
-    "postAuthor": "Emily",
-    "topic": "CRIME"
-  }
-]
+    {
+      "postTitle": "Selling LG 3000 TV",
+      "postText": "Selling our 2-year-old TV as we have just updated our whole system. It is an LG 3000 and is in great working order. Feel free to come and see for yourself.",
+      "postAuthor": "Miriam",
+      "postTopic": "FOR_SALE"
+    },
+    {
+      "postTitle": "Community Meeting Tonight",
+      "postText": "Reminder: Community meeting tonight at the local community center to discuss upcoming roadworks.",
+      "postAuthor": "John",
+      "postTopic": "INFRASTRUCTURE"
+    }
+  ]
