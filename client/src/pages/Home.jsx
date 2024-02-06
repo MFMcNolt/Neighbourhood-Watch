@@ -18,19 +18,27 @@ const Home = () => {
   const filteredPosts = filter ? posts.filter(post => post.topic === filter) : posts;
 
   return (
-    <div>
-      <h1>Home Page</h1>
+    <div className="container mt-4">
+      <h1 className="mb-4">MyNeighbourhood</h1>
       
-      {/* Post List */}
-      <PostList posts={filteredPosts} />
-
       {/* Post Filter */}
       <PostFilter setFilter={setFilter} />
 
-     {/* Post Form */}
-     <p>Add New Post</p>
-     <PostForm />
-
+      <div className="row">
+        <div className="col-md-8">
+          {/* Post List */}
+          <PostList posts={filteredPosts} />
+        </div>
+        <div className="col-md-4">
+          {/* Post Form */}
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Add New Post</h5>
+              <PostForm />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
