@@ -37,6 +37,8 @@ Browse through posts and announcements shared by other community members.
 Create new posts to share updates, alerts, or announcements with the neighborhood.
 Engage in discussions by commenting on posts and responding to comments from other users.
 
+[Screenshot](https://client/src/assets/Screenshot.png)
+
 ## Technology
 - React for the front end.
 - GraphQL with a Node.js and Express.js server.
