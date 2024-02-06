@@ -363,7 +363,7 @@ body {
     Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   font-size: 16px;
-  color: #1a1a1a;
+  color: #323131;
 }
 
 h1,
@@ -372,7 +372,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'Roboto', sans-serif;
   margin: 0 0 0.5rem;
   line-height: 1.25;
 }
@@ -923,7 +923,7 @@ a:hover {
 
 /* BACKGROUND UTILS */
 .bg-primary {
-  background-color: #2d3e50 !important;
+  background-color: #9eb6d0 !important;
 }
 
 .bg-info {

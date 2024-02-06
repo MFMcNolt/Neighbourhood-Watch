@@ -5,8 +5,7 @@ const CommentList = ({ comments }) => {
     <div>
       {comments.map(comment => (
         <div key={comment._id} className="comment">
-          <p>{comment.text}</p>
-          <p>Author: {comment.author}</p>
+          <p>Comment from {comment.commentAuthor}: {comment.commentText}</p>
         </div>
       ))}
     </div>
@@ -14,3 +13,4 @@ const CommentList = ({ comments }) => {
 };
 
 export default CommentList;
+
