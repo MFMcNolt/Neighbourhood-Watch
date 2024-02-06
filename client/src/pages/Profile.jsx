@@ -1,67 +1,91 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_POSTS, QUERY_ME } from '../utils/queries';
+import { QUERY_ME } from '../utils/queries';
 import { UPDATE_USER_PROFILE } from '../utils/mutations';
 
 const ProfilePage = () => {
-  // const [userData, setUserData] = useState(null);
-  // const { loading: profileLoading, error: profileError, data: profileData } = useQuery(QUERY_USER);
   const { loading, error, data } = useQuery(QUERY_ME);
-  const userData = data?.me
-  // const { loading: postsLoading, error: postsError, data: postData } = useQuery(QUERY_POSTS);
-  // const [updateProfile] = useMutation(UPDATE_USER_PROFILE);
-console.log(data)
+  const userData = data?.me;
+  const [updateProfile] = useMutation(UPDATE_USER_PROFILE);
+  const [isEditing, setIsEditing] = useState(false);
+  const [updatedData, setUpdatedData] = useState({});
 
-  // Effect to update user data when profileData changes
-  // useEffect(() => {
-  //   if (profileData) {
-  //     setUserData(profileData.user);
-  //   }
-  // }, [profileData]);
+  useEffect(() => {
+    if (userData) {
+      setUpdatedData({
+        username: userData.username,
+        email: userData.email,
+        suburb: userData.suburb
+      });
+    }
+  }, [userData]);
 
-  // update profile 
-  const handleUpdateProfile = async (updatedData) => {
+  const handleUpdateProfile = async () => {
     try {
       await updateProfile({ variables: { updatedData } });
-      
-      // Update local state with the updated data immediately
-      setUserData(updatedData);
       console.log('Profile updated successfully!');
+      setIsEditing(false);
     } catch (error) {
       console.error('Error updating profile:', error.message);
     }
   };
 
-  // Function to handle logout
   const handleLogout = () => {
     localStorage.removeItem('id_token');
-    history.push('/login');
+    // Redirect to the login page after logout
+    window.location.href = '/login';
   };
 
-  // if (profileLoading || postsLoading) return <p>Loading...</p>;
-  // if (profileError || postsError) return <p>Error :(</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error :(</p>;
 
   return (
-    <div>
-      <h2>Profile</h2>
+    <div className="container mt-4">
+      <h2 className="mb-4">Profile</h2>
       {userData && (
         <>
-          <div>
-            <p>Username: {userData.username}</p>
-            <p>Email: {userData.email}</p>
-            <p>Suburb: {userData.suburb}</p>
+          <div className="mb-4">
+            <p><strong>Username:</strong> {userData.username}</p>
+            <p><strong>Email:</strong> {userData.email}</p>
+            <p><strong>Suburb:</strong> {userData.suburb}</p>
           </div>
-          <h3>MyNeighbourhood Posts</h3>
-          <ul>
+          <h3 className="mb-3">MyNeighbourhood Posts</h3>
+          <ul className="list-group mb-4">
             {userData.posts.map(post => (
-              <li key={post._id}>
-                {post.postText}
-              </li>
+              <li key={post._id} className="list-group-item">{post.postText}</li>
             ))}
           </ul>
-          {/* <button onClick={() => handleUpdateProfile(updatedData)}>Edit Profile</button> */}
-          <button onClick={handleLogout}>Logout</button>
+          {isEditing ? (
+            <>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={updatedData.username}
+                  onChange={e => setUpdatedData({ ...updatedData, username: e.target.value })}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="email"
+                  value={updatedData.email}
+                  onChange={e => setUpdatedData({ ...updatedData, email: e.target.value })}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={updatedData.suburb}
+                  onChange={e => setUpdatedData({ ...updatedData, suburb: e.target.value })}
+                />
+              </div>
+              <button className="btn btn-primary mr-3" onClick={handleUpdateProfile}>Save</button>
+              <button className="btn btn-secondary" onClick={() => setIsEditing(false)}>Cancel</button>
+            </>
+          ) : (
+            <button className="btn btn-primary mb-3" onClick={() => setIsEditing(true)}>Edit Profile</button>
+          )}
+          <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
         </>
       )}
     </div>
@@ -69,6 +93,3 @@ console.log(data)
 };
 
 export default ProfilePage;
-
-
-

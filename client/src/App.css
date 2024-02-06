@@ -342,6 +342,8 @@ template {
 END NORMALIZE CSS
 =================
 */
+
+
 *,
 *::before,
 *::after {
@@ -356,6 +358,7 @@ body {
 body {
   margin: 0;
   padding: 0;
+  border: 100px solid #80d394; /* Adjust border thickness and color as needed */
   font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
