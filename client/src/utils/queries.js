@@ -53,6 +53,7 @@ export const QUERY_SINGLE_POST = gql`
     post(postId: $postId) {
       _id
       postTitle
+      postTopic
       postText
       postAuthor
       createdAt
@@ -62,7 +63,6 @@ export const QUERY_SINGLE_POST = gql`
         commentAuthor
         createdAt
       }
-      postTopic
     }
   }
 `;

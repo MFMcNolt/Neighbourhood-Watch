@@ -1,11 +1,14 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Auth from '../../utils/auth';
-// import logo from '../../assets/Homelogo.png';
 
 const Header = () => {
+  const history = useNavigate();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    navigate('/login'); 
   };
 
   return (
