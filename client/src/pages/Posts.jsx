@@ -35,10 +35,10 @@ const SinglePostPage = () => {
 
   return (
     <div>
-      <h2>{post.title}</h2>
-      <p>Author: {post.author}</p>
-      <p>Topic: {post.topic}</p>
-      <p>{post.text}</p>
+      <h2>{post.postTitle}</h2>
+      <p>Author: {post.postAuthor}</p>
+      <p>Created At: {post.createdAt}</p>
+      <p>Text: {post.postText}</p>
 
       <h3>Comments</h3>
       {/* Render the CommentList component */}
@@ -47,15 +47,8 @@ const SinglePostPage = () => {
       {/* Render the CommentForm component */}
       <CommentForm postId={postId} />
 
-      {/* Comment form */}
-      {/* <textarea
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
-        placeholder="Add a comment..."
-      /> */}
       <button onClick={handleSubmitComment}>Submit Comment</button>
     </div>
   );
 };
-
 export default SinglePostPage;
