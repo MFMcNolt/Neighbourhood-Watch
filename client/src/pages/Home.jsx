@@ -33,7 +33,7 @@ const Home = () => {
           {/* Post Form */}
           <div className="card">
             <div className="card-body">
-              <h5 className="card-title">Add New Post</h5>
+              <h5 className="card-title"></h5>
               <PostForm />
             </div>
           </div>

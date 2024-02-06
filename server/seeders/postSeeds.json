@@ -43,5 +43,102 @@
       "postText": "Reminder: Community meeting tonight at the local community center to discuss upcoming roadworks.",
       "postAuthor": "John",
       "postTopic": "INFRASTRUCTURE"
+    },
+    {
+      "postTitle": "Theft Incident on Elm Street",
+      "postText": "Attention neighbors, there was a reported theft incident on Elm Street last night. Please remain vigilant and report any suspicious activity to the local authorities. Let's work together to keep our neighborhood safe.",
+      "postAuthor": "Chris",
+      "postTopic": "CRIME"
+    },
+    {
+      "postTitle": "Vandalism at the Community Park",
+      "postText": "Residents, unfortunately, the community park was vandalized last night. Graffiti was sprayed on the playground equipment and benches. We urge everyone to keep an eye out for any suspicious behavior and report it immediately.",
+      "postAuthor": "Jessica",
+      "postTopic": "CRIME"
+    },
+    {
+      "postTitle": "Suspicious Activity Near Oak Avenue",
+      "postText": "Neighbors, there have been reports of suspicious individuals loitering near Oak Avenue. Please be cautious and ensure your homes and vehicles are secure. Let's work together to keep our neighborhood safe.",
+      "postAuthor": "Michael",
+      "postTopic": "CRIME"
+    },
+    {
+      "postTitle": "Car Break-Ins in the Area",
+      "postText": "Attention residents, there have been multiple reports of car break-ins in our neighborhood. Please remember to lock your vehicles and remove any valuables. Let's stay vigilant and report any suspicious activity to the authorities.",
+      "postAuthor": "Emily",
+      "postTopic": "CRIME"
+    },
+    {
+      "postTitle": "Vintage Furniture for Sale",
+      "postText": "Hi neighbors, I'm selling some beautiful vintage furniture pieces including a dining table, chairs, and a cabinet. They're in excellent condition and would make a great addition to any home. Let me know if you're interested!",
+      "postAuthor": "Sophie",
+      "postTopic": "FOR_SALE"
+    },
+    {
+      "postTitle": "Electronics Clearance Sale",
+      "postText": "Hey everyone, I'm clearing out some electronics including TVs, speakers, and gaming consoles. All items are in good working condition and at discounted prices. Let me know if you're interested!",
+      "postAuthor": "Alex",
+      "postTopic": "FOR_SALE"
+    },
+    {
+      "postTitle": "Moving Sale - Everything Must Go",
+      "postText": "Hi neighbors, I'm moving and need to sell all my furniture, appliances, and home decor items. Everything is in great condition and priced to sell quickly. Come take a look and make me an offer!",
+      "postAuthor": "Ben",
+      "postTopic": "FOR_SALE"
+    },
+    {
+      "postTitle": "Garden Plants for Sale",
+      "postText": "Hi everyone, I have a variety of beautiful garden plants for sale including flowers, shrubs, and succulents. Perfect for sprucing up your outdoor space! Let me know if you're interested.",
+      "postAuthor": "Maria",
+      "postTopic": "FOR_SALE"
+    },
+    
+    {
+      "postTitle": "Road Repairs on Main Street",
+      "postText": "Dear neighbors, I wanted to inform you that road repair works will commence on Main Street starting next Monday. Please expect some traffic disruptions and plan your routes accordingly. Thank you for your cooperation.",
+      "postAuthor": "Sarah",
+      "postTopic": "INFRASTRUCTURE"
+    },
+    {
+      "postTitle": "New Bicycle Lanes Proposal",
+      "postText": "Hi everyone, there's a proposal to add new bicycle lanes along Oak Avenue to promote cycling and improve safety for cyclists. Join us at the community meeting next week to discuss the details and provide your input.",
+      "postAuthor": "David",
+      "postTopic": "INFRASTRUCTURE"
+    },
+    {
+      "postTitle": "Park Renovation Project",
+      "postText": "Neighbors, I'm excited to announce that our local park is undergoing renovation! The project includes installing new playground equipment, picnic areas, and walking trails. Let's work together to create a beautiful community space.",
+      "postAuthor": "Emily",
+      "postTopic": "INFRASTRUCTURE"
+    },
+    {
+      "postTitle": "Street Lighting Upgrade",
+      "postText": "Good news! The city council has approved funding for a street lighting upgrade in our neighborhood. This will improve visibility and safety at night. Stay tuned for more details on the implementation timeline.",
+      "postAuthor": "Mark",
+      "postTopic": "INFRASTRUCTURE"
+    },
+    {
+      "postTitle": "Local Charity Event Success",
+      "postText": "Great news, everyone! Our recent charity event raised over $10,000 for the local homeless shelter. Thank you to all who contributed and volunteered to make it a success.",
+      "postAuthor": "John",
+      "postTopic": "NEWS"
+    },
+    {
+      "postTitle": "New Business Opening on Elm Street",
+      "postText": "Exciting news for our neighborhood! A new bakery called 'Sweet Delights' is opening its doors on Elm Street next week. Let's show our support for this local business by stopping by for some tasty treats.",
+      "postAuthor": "Emily",
+      "postTopic": "NEWS"
+    },
+    {
+      "postTitle": "Community Garden Project Update",
+      "postText": "Update on our community garden project: we've secured funding for raised beds and soil amendments. Volunteers are needed for the next phase of construction. Let's make our neighborhood green and vibrant!",
+      "postAuthor": "Michael",
+      "postTopic": "NEWS"
+    },
+    {
+      "postTitle": "Neighborhood Watch Meeting Reminder",
+      "postText": "Friendly reminder: our monthly Neighborhood Watch meeting is happening this Thursday at the community center. Let's come together to discuss safety issues and ways to keep our neighborhood secure.",
+      "postAuthor": "Emma",
+      "postTopic": "NEWS"
     }
   ]

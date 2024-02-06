@@ -9,24 +9,24 @@ import CommentList from '../components/CommentList';
 const SinglePostPage = () => {
   const { postId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_POST, { variables: { postId } });
-  const [commentText, setCommentText] = useState('');
 
   const [addComment] = useMutation(ADD_COMMENT, {
     refetchQueries: [{ query: QUERY_SINGLE_POST, variables: { postId } }]
   });
 
-  const handleSubmitComment = async () => {
-    if (!commentText) {
+  const [comments, setComments] = useState([]);
+
+  const handleSubmitComment = async (comment) => {
+    if (!comment.text || !comment.name) {
       return;
     }
 
     try {
-      // Perform add comment mutation
-      await addComment({ variables: { postId, commentText } });
-      // Clear comment text
-      setCommentText('');
+      const { data } = await addComment({ variables: { postId, ...comment } });
+      // Update comments state with the new comment
+      setComments([...comments, data.addComment]);
     } catch (error) {
-      // Handle error (e.g., display error message)
+      console.error('Error adding comment:', error);
     }
   };
 
@@ -41,14 +41,13 @@ const SinglePostPage = () => {
       <p>Text: {post.postText}</p>
 
       <h3>Comments</h3>
-      {/* Render the CommentList component */}
-      <CommentList comments={post.comments} />
+      <CommentList comments={comments} />
 
-      {/* Render the CommentForm component */}
-      <CommentForm postId={postId} />
+      {/* Pass handleSubmitComment function as prop to CommentForm */}
+      <CommentForm onSubmit={handleSubmitComment} />
 
-      <button onClick={handleSubmitComment}>Submit Comment</button>
     </div>
   );
 };
+
 export default SinglePostPage;

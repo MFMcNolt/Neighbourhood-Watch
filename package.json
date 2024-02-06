@@ -17,6 +17,7 @@
     "concurrently": "^8.2.0"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "apollo-server-express": "^3.13.0"
   }
 }

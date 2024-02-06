@@ -26,7 +26,7 @@ const PostFilter = ({ onFilterChange }) => {
       </button>
       <button
         className={`filter-item ${activeFilter === 'For Sale' ? 'active' : ''}`}
-        onClick={() => handleClick('FOR SALE')}
+        onClick={() => handleClick('FOR_SALE')}
         style={{ padding: '5px 10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
       >
         For Sale

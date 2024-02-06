@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const PostList = ({ posts }) => {
   return (
     <div>
-      <h2>Posts</h2>
       {posts.map(post => (
         <div key={post._id} className="post">
           <h3>{post.postTitle}</h3>

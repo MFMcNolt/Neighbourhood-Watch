@@ -15,7 +15,8 @@ const Header = () => {
     <header className="bg-primary text-light mb-4 py-3 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
-          <p className= "m-0">Neighbhourhood Watch</p>
+          {/* Add custom class for styling */}
+          <p className="m-0 header-title">Neighbourhood Watch</p>
           <p className="m-0">Empowering Communities, Securing Streets!</p>
         </div>
         <div>
