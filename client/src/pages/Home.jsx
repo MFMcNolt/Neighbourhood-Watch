@@ -6,7 +6,7 @@ import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
 
 const Home = () => {
-  const [filter, setFilter] = useState(null); // State for filtering posts
+  const [filter, setFilter] = useState('All'); // State for filtering posts
   const { loading, error, data } = useQuery(QUERY_POSTS);
 
   if (loading) return <p>Loading...</p>;
@@ -15,14 +15,14 @@ const Home = () => {
   const { posts } = data;
 
   // Filter posts by selected topic
-  const filteredPosts = filter ? posts.filter(post => post.topic === filter) : posts;
+  const filteredPosts = filter === 'All' ? posts : posts.filter(post => post.postTopic === filter);
 
   return (
     <div className="container mt-4">
       <h1 className="mb-4">MyNeighbourhood</h1>
       
       {/* Post Filter */}
-      <PostFilter setFilter={setFilter} />
+      <PostFilter onFilterChange={setFilter} />
 
       <div className="row">
         <div className="col-md-8">

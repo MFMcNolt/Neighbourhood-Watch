@@ -19,28 +19,28 @@ const PostFilter = ({ onFilterChange }) => {
       </button>
       <button
         className={`filter-item ${activeFilter === 'News' ? 'active' : ''}`}
-        onClick={() => handleClick('News')}
+        onClick={() => handleClick('NEWS')}
         style={{ padding: '5px 10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
       >
         News
       </button>
       <button
         className={`filter-item ${activeFilter === 'For Sale' ? 'active' : ''}`}
-        onClick={() => handleClick('For Sale')}
+        onClick={() => handleClick('FOR SALE')}
         style={{ padding: '5px 10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
       >
         For Sale
       </button>
       <button
         className={`filter-item ${activeFilter === 'Crime' ? 'active' : ''}`}
-        onClick={() => handleClick('Crime')}
+        onClick={() => handleClick('CRIME')}
         style={{ padding: '5px 10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
       >
         Crime
       </button>
       <button
         className={`filter-item ${activeFilter === 'Infrastructure' ? 'active' : ''}`}
-        onClick={() => handleClick('Infrastructure')}
+        onClick={() => handleClick('INFRASTRUCTURE')}
         style={{ padding: '5px 10px', border: '1px solid #ccc', background: '#fff', cursor: 'pointer' }}
       >
         Infrastructure
