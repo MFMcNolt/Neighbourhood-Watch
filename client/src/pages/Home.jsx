@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_POSTS, ADD_POST } from '../utils/queries';
+import { QUERY_POSTS } from '../utils/queries';
+import { ADD_POST } from '../utils/mutations';
 import PostFilter from '../components/PostFilter';
 import PostList from '../components/PostList';
 import PostForm from '../components/PostForm';
